@@ -22,5 +22,5 @@ The Phishing Email Analysis Challenge focuses on enhancing participants' ability
 
 ### Work Done on Let's Defend
 
-You can view my completed phishing email analysis challenge on Let's Defend here:
-<a herf="https://app.letsdefend.io/challenge/phishing-email"> Click here </a>
+You can view my completed phishing email analysis challenge on Let's Defend here:</br>
+<a href="https://app.letsdefend.io/challenge/phishing-email"> Click here </a>
