@@ -2,33 +2,88 @@
 
 ## Objective
 
-The Phishing Email Analysis Challenge focuses on enhancing participants' ability to detect and analyze phishing emails using real-world scenarios. The challenge involves identifying suspicious domains, analyzing email headers, verifying SHA-256 hashes, and investigating URLs for potential threats. Through this hands-on experience, participants will develop essential cybersecurity skills required for email security analysis and threat intelligence.
+The objective of this project was to investigate and respond to a phishing email campaign scenario presented in the TryHackMe room titled "An Ordinary Midsummer Day...". The project involved a deep dive into phishing email analysis, identification of malicious URLs, and phishing kit investigation. The goal was to simulate real-world SOC procedures in tracking adversarial infrastructure and compromised credentials stemming from a targeted phishing attack.
 
-### Skills Learned
+## Skills Learned
 
-- Identifying suspicious domains and return paths in phishing emails.
-- Extracting and analyzing email headers for malicious indicators.
-- Verifying SHA-256 hashes of domains for authenticity and security validation.
-- Investigating URLs and domains used in phishing attacks.
-- Understanding the role of social engineering tactics in email-based threats.
-- Enhancing incident response skills for handling phishing cases.
+- Phishing Email Analysis: Examined email headers and contents to identify malicious sender details and delivery patterns.
+- URL & Redirection Tracking: Investigated phishing URLs, including decoding defanged links and tracking redirections specific to targeted users.
+- Phishing Kit Forensics: Retrieved and analyzed a phishing kit ZIP archive, verifying integrity via SHA256 hashes.
+- Cyber Threat Intelligence (CTI): Used tools like VirusTotal, SSL cert transparency logs, and WHOIS to attribute infrastructure and timeline of the attack.
+- Victim Identification & Behavior Analysis: Identified affected employees (e.g., William McClean, Michael Ascot) and their actions, such as repeated credential submission.
+- IOC Extraction & Correlation: Collected key Indicators of Compromise including attacker email addresses.
   
-### Tools Used
+## Tools Used
 
-- Let's Defend platform for interactive phishing email analysis.
-- Threat intelligence sources for domain and hash verification.
-- SHA-256 hashing tools to analyze domain security.
-- Phishing URL analysis tools for inspecting malicious links.
+- TryHackMe paltform for accessing the Lab
+- VirusTotal – To scan URLs, files, and retrieve intelligence on the phishing kit hash.
+- Cyberchef: To decode obfuscated URLs and encoded payloads.
+- Ubuntu Terminal: Command-line interface for executing the Tool.
+- Virtual Machine (VM): Simulated environment for executing tasks.
+- Firefox Developer Edition – For safely browsing phishing URLs in a controlled environment.
 
-### Work Done on Let's Defend
-
-You can view my completed phishing email analysis challenge on Let's Defend here:</br></br></br>
-<img src="https://github.com/user-attachments/assets/b1202a22-25ee-4f3a-8a52-2f4170f8f0d2"><br>
-<img src="https://github.com/user-attachments/assets/9d96980e-9b94-4a3a-98b2-140b6b12686e"><br>
-<img src="https://github.com/user-attachments/assets/0c59ec96-83dc-4aea-a8c4-f10bd2badff1"><br></br>
-<a href="https://app.letsdefend.io/my-rewards/detail/c51e1550-882a-43f0-a966-699aa0f781c1"> Link to Letsdefend Rewards Section </a><br>
+## Scenario
 
 
-### Conclusion
+An Ordinary Midsummer Day...
 
-Participating in the Phishing Email Analysis Challenge on Let's Defend provided valuable hands-on experience in detecting and mitigating phishing threats. By analyzing real-world phishing indicators, examining email headers, and investigating domains, I strengthened my ability to identify malicious emails effectively. This challenge not only enhanced my technical skills but also reinforced the importance of cybersecurity awareness in preventing phishing attacks. The knowledge gained from this experience will be instrumental in future threat analysis and incident response tasks.
+As an IT department personnel of SwiftSpend Financial, one of your responsibilities is to support your fellow employees with their technical concerns. While everything seemed ordinary and mundane, this gradually changed when several employees from various departments started reporting an unusual email they had received. Unfortunately, some had already submitted their credentials and could no longer log in.
+
+You now proceeded to investigate what is going on by:
+- Analysing the email samples provided by your colleagues.
+- Analysing the phishing URL(s) by browsing it using Firefox.
+- Retrieving the phishing kit used by the adversary.
+- Using CTI-related tooling to gather more information about the adversary.
+- Analysing the phishing kit to gather more information about the adversary.
+
+## Steps taken
+
+Q1. Who is the individual who received an email attachment containing a PDF?<br>
+Ans : William McClean<br>
+O/P: <img src="https://github.com/user-attachments/assets/1e9edf07-fbce-47d0-85e7-e3bcc531ea72" />
+    <img src="https://github.com/user-attachments/assets/dc6f08b0-d57e-4baa-8c35-5e31cb69e752" /> <br><br>
+
+Q2. What email address was used by the adversary to send the phishing emails?<br>
+Ans : Accounts.Payable@groupmarketingonline.icu<br>
+O/P: <img src="https://github.com/user-attachments/assets/1ac06cd0-7c4e-4455-bd33-842af98431ec" /> <br><br>
+
+Q3. What is the redirection URL to the phishing page for the individual Zoe Duncan? (defanged format)<br>
+Ans : hxxp[://]kennaroads[.]buzz/data/Update365/office365/40e7baa2f826a57fcf04e5202526f8bd/?email=zoe[.]duncan@swiftspend[.]finance&error<br>
+O/P: <img src="https://github.com/user-attachments/assets/8aac87d5-04a4-4b3e-baf7-e7d386741a04" /> 
+ <img src="https://github.com/user-attachments/assets/9dafa5e7-f8c8-49e5-8ba2-b05b53f62a28" /> 
+  <img src="https://github.com/user-attachments/assets/21c8a028-8607-487c-bd67-e8249f1fbae9" /> <br><br>
+
+Q4. What is the URL to the .zip archive of the phishing kit? (defanged format)<br>
+Ans : hxxp[://]kennaroads[.]buzz/data/Update365[.]zip<br>
+O/P: <img src="https://github.com/user-attachments/assets/f4b3e58c-ba23-4a84-8e0b-3bb3857062bf" />
+<img src="https://github.com/user-attachments/assets/851fae61-25f0-4540-a8e8-5605f973a1f7" /> <br><br>
+
+Q5. What is the SHA256 hash of the phishing kit archive?<br>
+Ans : ba3c15267393419eb08c7b2652b8b6b39b406ef300ae8a18fee4d16b19ac9686<br>
+O/P: <img src="https://github.com/user-attachments/assets/4071b113-6c03-45ed-a61c-84ce5360d461" /> <br><br>
+
+Q6. When was the phishing kit archive first submitted? (format: YYYY-MM-DD HH:MM:SS UTC) <br>
+Ans : 2020-04-08 21:55:50 UTC<br>
+O/P: <img src="https://github.com/user-attachments/assets/38d9d26e-2c31-4194-a717-2879143908b5" /> <br><br>
+
+Q7. What was the email address of the user who submitted their password twice?<br>
+Ans : michael.ascot@swiftspend.finance<br>
+O/P: <img src="https://github.com/user-attachments/assets/d59046cd-c050-4e3c-bb2f-913f0fd4ff43" /> <br><br>
+
+Q8. What was the email address used by the adversary to collect compromised credentials?<br>
+Ans : m3npat@yandex.com<br>
+O/P: <img src="https://github.com/user-attachments/assets/abe697fb-de50-4953-966e-0aac4dea50df" /> <br><br>
+
+Q9. The adversary used other email addresses in the obtained phishing kit. What is the email address that ends in "@gmail.com"?<br>
+Ans : jamestanner2299@gmail.com<br>
+O/P: <img src="https://github.com/user-attachments/assets/c9947021-3e05-4918-96b6-6292a5040733" /> <br><br>
+
+Q10. What is the hidden flag?<br>
+Ans : THM{pL4y_w1Th_tH3_URL}<br>
+O/P: <img src="https://github.com/user-attachments/assets/edc0f5f3-e752-448d-a883-0a1ed767af34" />
+<img src="https://github.com/user-attachments/assets/81669b87-f292-4035-bf77-3646a1270733" /><br><br>
+
+
+## Conclusion
+
+This project simulated a realistic phishing incident response case through the TryHackMe platform, showcasing the tactics used by attackers and the corresponding defensive actions taken by security teams. By analyzing phishing emails, tracing URLs, and extracting data from phishing kits, I was able to understand the full lifecycle of a phishing campaign. This hands-on experience emphasized how crucial email security and CTI are in real-world scenarios, and how methodical investigation using forensic tools can help mitigate breaches. Overall, PhishTrail deepened my skills in phishing analysis and email-based threat detection within a structured, practical environment.
